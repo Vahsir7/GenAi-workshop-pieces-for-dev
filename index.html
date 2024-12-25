@@ -5,10 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Machine Learning Facts</title>
     <style>
+        :root {
+            --primary-color: #007bff;
+            --primary-hover-color: #0056b3;
+            --background-color: #f4f4f9;
+            --text-color: #333;
+            --container-bg-color: #fff;
+            --font-family: 'Arial', sans-serif;
+            --box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            --border-radius: 8px;
+            --transition-duration: 0.3s;
+        }
+
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f9;
-            color: #333;
+            font-family: var(--font-family);
+            background-color: var(--background-color);
+            color: var(--text-color);
             display: flex;
             justify-content: center;
             align-items: center;
@@ -18,10 +30,15 @@
 
         .container {
             text-align: center;
-            background-color: #fff;
+            background-color: var(--container-bg-color);
             padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            transition: transform var(--transition-duration);
+        }
+
+        .container:hover {
+            transform: translateY(-5px);
         }
 
         button {
@@ -31,12 +48,13 @@
             cursor: pointer;
             border: none;
             border-radius: 5px;
-            background-color: #007bff;
+            background-color: var(--primary-color);
             color: #fff;
+            transition: background-color var(--transition-duration);
         }
 
         button:hover {
-            background-color: #0056b3;
+            background-color: var(--primary-hover-color);
         }
 
         p {
