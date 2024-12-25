@@ -15,7 +15,7 @@ This is a simple webpage that displays random facts about Machine Learning. The 
 
 ## How to Use
 
-1. Visit the [Machine Learning Facts](https://Vahsir7.io/ml-facts/) page.
+1. Visit the [Machine Learning Facts](https://vahsir7.github.io/GenAi-workshop-pieces-for-dev/) page.
 2. Click the "Generate Fact" button to display a random fact about Machine Learning.
 
 ## Deployment
