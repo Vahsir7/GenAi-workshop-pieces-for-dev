@@ -3,90 +3,72 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Machine Learning Facts</title>
+    <title>Escape Button</title>
     <style>
-        :root {
-            --primary-color: #ff6347; /* Tomato */
-            --primary-hover-color: #ff4500; /* OrangeRed */
-            --background-color: #e0f7fa; /* Light Cyan */
-            --text-color: #2f4f4f; /* Dark Slate Gray */
-            --container-bg-color: #ffffff; /* White */
-            --font-family: 'Arial', sans-serif;
-            --box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-            --border-radius: 10px;
-            --transition-duration: 0.3s;
-        }
-
         body {
-            font-family: var(--font-family);
-            background-color: var(--background-color);
-            color: var(--text-color);
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
             margin: 0;
+            background-color: #ffebcd; /* Light color for the background */
+            flex-direction: column;
         }
-
-        .container {
-            text-align: center;
-            background-color: var(--container-bg-color);
-            padding: 30px;
-            border-radius: var(--border-radius);
-            box-shadow: var(--box-shadow);
-            transition: transform var(--transition-duration);
-        }
-
-        .container:hover {
-            transform: translateY(-5px);
-        }
-
-        button {
-            padding: 12px 24px;
-            font-size: 18px;
-            margin-top: 25px;
+        #escapeButton, #stopButton {
+            padding: 10px 20px;
+            font-size: 16px;
             cursor: pointer;
+            position: absolute;
+            background-color: #ff6347; /* Tomato color for the button */
+            color: white;
             border: none;
-            border-radius: 8px;
-            background-color: var(--primary-color);
-            color: #fff;
-            transition: background-color var(--transition-duration);
+            border-radius: 5px;
+            transition: left 0.5s, top 0.5s; /* Smooth transition for movement */
         }
-
-        button:hover {
-            background-color: var(--primary-hover-color);
+        #stopButton {
+            display: none; /* Initially hidden */
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
         }
-
-        p {
-            margin-top: 25px;
-            font-size: 20px;
+        #message {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #333;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Machine Learning Facts</h1>
-        <button id="generateFactBtn">Generate Fact</button>
-        <p id="factDisplay"></p>
-    </div>
-    <script>
-        const mlFacts = [
-            "Machine Learning is a subset of artificial intelligence (AI) that involves the use of algorithms and statistical models to enable computers to improve their performance on a task through experience.",
-            "There are three main types of machine learning: supervised learning, unsupervised learning, and reinforcement learning. Each type has different applications and methodologies.",
-            "In supervised learning, models are trained on labeled data. This means that the input data is paired with the correct output, and the model learns to map inputs to outputs.",
-            "Unsupervised learning involves training models on data without labeled responses. The model tries to identify patterns and relationships in the data, such as clustering or association.",
-            "Reinforcement learning is based on the concept of agents taking actions in an environment to maximize some notion of cumulative reward. It is widely used in robotics, gaming, and autonomous systems.",
-            "Feature engineering is a crucial step in the ML pipeline where raw data is transformed into features that better represent the underlying problem to the predictive models, resulting in improved model accuracy.",
-            "Overfitting occurs when a model learns the training data too well, capturing noise along with the underlying pattern. Underfitting happens when a model is too simple to capture the underlying trend of the data.",
-            "Cross-validation is a technique used to assess how the results of a statistical analysis will generalize to an independent data set. It is mainly used in settings where the goal is prediction and one wants to estimate how accurately a predictive model will perform in practice.",
-            "Neural networks are a series of algorithms that mimic the operations of a human brain to recognize relationships between vast amounts of data. They are the foundation of deep learning.",
-            "Machine learning is used in various applications such as image and speech recognition, medical diagnosis, stock trading, recommendation systems, and autonomous vehicles, among others."
-        ];
+    <button id="escapeButton">Click Me to View My Work</button>
+    <button id="stopButton">Stop Movement</button>
+    <div id="message"></div>
 
-        document.getElementById('generateFactBtn').addEventListener('click', function() {
-            const randomIndex = Math.floor(Math.random() * mlFacts.length);
-            document.getElementById('factDisplay').textContent = mlFacts[randomIndex];
+    <script>
+        const escapeButton = document.getElementById('escapeButton');
+        const stopButton = document.getElementById('stopButton');
+        const messageDiv = document.getElementById('message');
+        let escapeEnabled = true;
+
+        escapeButton.addEventListener('mouseover', () => {
+            if (escapeEnabled) {
+                const x = Math.random() * (window.innerWidth - escapeButton.clientWidth);
+                const y = Math.random() * (window.innerHeight - escapeButton.clientHeight);
+                escapeButton.style.left = `${x}px`;
+                escapeButton.style.top = `${y}px`;
+            }
         });
+
+        escapeButton.addEventListener('click', () => {
+            messageDiv.textContent = "Thank you sir for teaching me this 🙏";
+        });
+
+        stopButton.addEventListener('click', () => {
+            escapeEnabled = false;
+        });
+
+        setTimeout(() => {
+            stopButton.style.display = 'block';
+        }, 30000); // Show the stop button after 30 seconds
     </script>
 </body>
 </html>
