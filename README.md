@@ -21,7 +21,7 @@ The Escape Button project is an engaging and interactive web page where a button
 - **JavaScript**: Adds interactive behaviors to the web elements.
 
 ## Setup
-To view this project, visit the GitHub Pages link: [GitHub Pages URL](https://yourusername.github.io/escape-button-project/)
+To view this project, visit the GitHub Pages link: [GitHub Pages URL](https://vahsir7.github.io/GenAi-workshop-pieces-for-dev/)
 
 ## Project Structure
 ```plaintext
